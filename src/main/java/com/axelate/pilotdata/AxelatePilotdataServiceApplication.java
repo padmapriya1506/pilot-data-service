@@ -1,0 +1,13 @@
+package com.axelate.pilotdata;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AxelatePilotdataServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AxelatePilotdataServiceApplication.class, args);
+	}
+
+}
