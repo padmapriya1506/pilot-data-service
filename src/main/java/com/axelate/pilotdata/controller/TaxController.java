@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.axelate.pilotdata.model.Tax;
+import com.axelate.pilotdata.model.Tax.TaxBuilder;
 import com.axelate.pilotdata.service.TaxService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -64,13 +65,14 @@ public class TaxController {
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public Tax updateTax(@RequestParam Long id, @RequestBody Tax taxDetails) {
 		 Tax tax = service.findTaxById(id);
-		 tax.toBuilder().
+		 Tax taxBulider= Tax.builder().
+				taxId(id).
 				taxName(taxDetails.getTaxName())
 				.taxPercentage(taxDetails.getTaxPercentage())
 				.taxSpecificType(tax.getTaxSpecificType())
 				.taxType(tax.toString())				
 				.build();		
-		 return service.updateTax(id, tax);
+		 return service.updateTax(id, taxBulider);
 	}
 	
 
