@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -46,11 +47,11 @@ public class Branch implements Serializable {
 	@JoinColumn(name = "transaction_number_series_id")
 	private  TransactionNumberSeries transactionNumberSeries;
 	
-	@OneToMany
+	@OneToOne
 	@JoinColumn(name = "default_transaction_number_series_id")
 	private  TransactionNumberSeries defaultTransactionNumberSeries;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
 	private Warehouse warehouse;
 	
